@@ -1,0 +1,11 @@
+# Sensitive / personal data
+applications/
+data/profile.json
+*.env
+
+# Claude local settings
+.claude/settings.local.json
+
+# macOS
+.DS_Store
+.playwright-mcp/
