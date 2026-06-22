@@ -1,6 +1,10 @@
+# Personal config — copy CLAUDE.template.md to CLAUDE.md and fill in your details
+CLAUDE.md
+
 # Sensitive / personal data
 applications/
 data/profile.json
+resume/master_resume.md
 *.env
 
 # Claude local settings

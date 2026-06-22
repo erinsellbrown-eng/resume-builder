@@ -1,13 +1,19 @@
-# Job Applier Agent — Erin Brown Configuration
+# Job Applier Agent — Configuration Template
 
-This agent is configured for **Erin Brown**, a Senior Marketing Manager / Product Marketing leader with 15 years of B2B SaaS experience. All behavior below overrides the defaults in SKILL.md where they conflict.
+This is the configuration template for the Job Applier Agent. Copy this file to `CLAUDE.md` and fill in your personal details before using the agent.
+
+```bash
+cp CLAUDE.template.md CLAUDE.md
+```
+
+> ⚠️ `CLAUDE.md` is gitignored — your personal data stays local only.
 
 ---
 
 ## Identity & Context
 
-- **Candidate:** Erin Brown
-- **Email:** erin.sell.brown@gmail.com
+- **Candidate:** [YOUR_FULL_NAME]
+- **Email:** [YOUR_EMAIL]
 - **Profile:** `~/job-applier-agent/data/profile.json`
 - **Master Resume:** `~/job-applier-agent/resume/master_resume.md`
 - **$APPLIER_HOME:** `~/job-applier-agent`
@@ -21,23 +27,23 @@ For every job processed, ALL output files must be saved to Google Drive in addit
 ### Folder Structure
 ```
 Resumes/
-└── Agent Applications/                          ← Google Drive folder ID: 1Qc85sYy73paOlDt-NgJNgl13hxU9VS5e
+└── Agent Applications/                          ← Google Drive folder ID: [YOUR_GDRIVE_FOLDER_ID]
     └── <CompanyName> - <Job Title>/             ← Create this subfolder per job
-        ├── EBrown_<CompanyName>_Resume         ← Google Doc
-        ├── EBrown_<CompanyName>_CoverLetter    ← Google Doc
-        └── JobPosting_<CompanyName>            ← Google Doc (job title, company, posting URL)
+        ├── [INITIALS]_<CompanyName>_Resume      ← Google Doc
+        ├── [INITIALS]_<CompanyName>_CoverLetter ← Google Doc
+        └── JobPosting_<CompanyName>             ← Google Doc (job title, company, posting URL)
 ```
 
 ### File Naming Convention (EXACT)
 | File | Name | Type |
 |---|---|---|
-| Tailored Resume | `EBrown_<CompanyName>_Resume` | Google Doc |
-| Cover Letter | `EBrown_<CompanyName>_CoverLetter` | Google Doc |
+| Tailored Resume | `[INITIALS]_<CompanyName>_Resume` | Google Doc |
+| Cover Letter | `[INITIALS]_<CompanyName>_CoverLetter` | Google Doc |
 | Job Posting Link | `JobPosting_<CompanyName>` | Google Doc |
 
 All files must be saved as **Google Docs** (`application/vnd.google-apps.document`) — not .md, .txt, or .docx.
 
-Use the company's short name (no spaces, no special characters) for `<CompanyName>`. Example: `EBrown_Salesforce_Resume`
+Use the company's short name (no spaces, no special characters) for `<CompanyName>`. Example: `[INITIALS]_Salesforce_Resume`
 
 ### Job Posting Document Format
 The `JobPosting_<CompanyName>.md` file must contain:
@@ -54,12 +60,12 @@ The `JobPosting_<CompanyName>.md` file must contain:
 ```
 
 ### Google Drive Save Process (every job, no exceptions)
-1. Create subfolder `<CompanyName> - <Job Title>` inside `Agent Applications` (folder ID: `1Qc85sYy73paOlDt-NgJNgl13hxU9VS5e`)
-2. Save `EBrown_<CompanyName>_Resume.md` to that subfolder
-3. Save `EBrown_<CompanyName>_CoverLetter.md` to that subfolder
+1. Create subfolder `<CompanyName> - <Job Title>` inside `Agent Applications` (folder ID: `[YOUR_GDRIVE_FOLDER_ID]`)
+2. Save `[INITIALS]_<CompanyName>_Resume.md` to that subfolder
+3. Save `[INITIALS]_<CompanyName>_CoverLetter.md` to that subfolder
 4. Save `JobPosting_<CompanyName>.md` to that subfolder
 5. Also save copies locally to `$APPLIER_HOME/applications/<CompanyName_RoleShorthand>/` as usual
-6. Report the Google Drive folder link to Erin when presenting materials
+6. Report the Google Drive folder link when presenting materials
 
 ---
 
@@ -71,7 +77,7 @@ The `JobPosting_<CompanyName>.md` file must contain:
 - If location is ambiguous, check the listing body for remote confirmation before scoring.
 
 ### Target Titles Only
-Only surface roles with one of these titles (or close variants):
+Only surface roles with one of these titles (or close variants) — **edit this list to match your search:**
 
 | Approved Titles |
 |---|
@@ -85,17 +91,17 @@ Only surface roles with one of these titles (or close variants):
 **Exclude automatically:**
 - VP, SVP, EVP, Chief, C-Suite (too senior)
 - Intern, Associate, Coordinator, Specialist (too junior)
-- Software Engineer, Developer, Designer, Sales, or any non-marketing role
+- Roles outside your target function
 - Roles requiring a security clearance
 - Roles requiring relocation or in-office attendance
 
 ### Do NOT Submit Applications
-Erin's workflow is **research and prepare, not auto-submit.** The agent should:
+The workflow is **research and prepare, not auto-submit.** The agent should:
 1. Find matching jobs
 2. Score and rank them
 3. Tailor the resume
 4. Build the cover letter
-5. **STOP — present all materials to Erin for review**
+5. **STOP — present all materials for review**
 6. **Never submit an application without explicit confirmation**
 
 ---
@@ -107,8 +113,8 @@ Every tailored resume bullet must follow this formula:
 > **Action Verb + What You Did + Scale or Result**
 
 Examples of correct format:
-- ✅ "Generated 2,400+ qualified B2B leads within six weeks by architecting integrated, multi-channel campaigns across email, paid social, content, and webinars."
-- ✅ "Improved MQL-to-SQL conversion by 70% by redesigning lead scoring, routing, and progressive profiling in Salesforce and Pardot."
+- ✅ "Generated 2,400+ qualified leads within six weeks by architecting integrated, multi-channel campaigns across email, paid social, content, and webinars."
+- ✅ "Improved conversion by 70% by redesigning lead scoring, routing, and progressive profiling."
 - ❌ "Responsible for lead generation campaigns" (no verb strength, no result)
 - ❌ "Helped with webinar production" (passive, no scale)
 
@@ -118,7 +124,7 @@ Examples of correct format:
 3. **Reorder bullets by relevance.** Lead with the accomplishments that most directly match what the JD is asking for.
 4. **Pull from the Master Accomplishments Bank** in master_resume.md for additional bullets when a JD calls for something not in the primary bullets.
 5. **Never fabricate metrics, titles, dates, or skills.** Only reorder, reword using JD language, and emphasize what already exists.
-6. **Bold key terms** that match the JD exactly (e.g., if they mention Salesforce, bold Salesforce).
+6. **Bold key terms** that match the JD exactly.
 7. Save tailored resume to: `$APPLIER_HOME/applications/<Company>/resume_tailored.md`
 
 ### Positioning Variants (choose based on role)
@@ -139,14 +145,14 @@ Full positioning statements are in `~/job-applier-agent/resume/master_resume.md`
 
 - **250–350 words maximum**
 - **Opening must reference something specific** about the company (product, mission, recent news, funding, customer base) — never generic
-- **At least one metric** from Erin's real experience in paragraph 2
+- **At least one metric** from your real experience in paragraph 2
 - **Tone: confident peer, not eager applicant**
 - Match JD vocabulary throughout
 - Do not recite the resume — tell a story
 - Save to: `$APPLIER_HOME/applications/<Company>/cover_letter.md`
 
 ### Cover Letter Voice
-Erin writes with clarity and confidence. Her natural voice:
+Write with clarity and confidence:
 - Direct, not flowery
 - Shows business judgment, not just task completion
 - Connects marketing activity to revenue outcomes
@@ -159,16 +165,13 @@ Erin writes with clarity and confidence. Her natural voice:
 When running `/apply-job search <query>`, use these search patterns:
 
 ```
-"Product Marketing Manager" remote 2026
-"Senior Product Marketing Manager" remote
-"Senior Marketing Manager" remote B2B SaaS
-"Director of Product Marketing" remote
-"Marketing Manager" remote SaaS B2B
-site:linkedin.com/jobs "Product Marketing Manager" remote
-site:greenhouse.io "Senior Marketing Manager" remote
+"[YOUR_TARGET_TITLE]" remote 2026
+"[YOUR_TARGET_TITLE]" remote B2B SaaS
+site:linkedin.com/jobs "[YOUR_TARGET_TITLE]" remote
+site:greenhouse.io "[YOUR_TARGET_TITLE]" remote
 ```
 
-**Prioritize companies in:**
+**Prioritize companies in:** *(edit to match your target industries)*
 - B2B SaaS
 - AI / ML / emerging technology
 - Healthcare technology
@@ -176,7 +179,7 @@ site:greenhouse.io "Senior Marketing Manager" remote
 - Marketing technology (MarTech)
 
 **Filter out:**
-- Consumer / B2C roles
+- Consumer / B2C roles (if not your target)
 - Roles requiring industry-specific licenses
 - Agencies (unless fractional/contract role is specifically desired)
 - Startups with fewer than 20 employees (unless clearly funded)
@@ -191,14 +194,12 @@ Standard fit scoring applies, with these overrides:
 |---|---|
 | Remote confirmed | **REQUIRED** — score = 0 if not remote |
 | Title match | Must be within target list or close variant |
-| B2B SaaS experience valued | Boost score if company is B2B SaaS or AI |
-| AI product experience | Boost score — Erin has strong AI GTM background |
-| 15 years experience | Level match: Manager to Director level only |
+| Industry match | Boost score if company is in your target industries |
+| Years of experience | Level match: adjust for your seniority |
 
 **Dealbreakers (auto-fail):**
 - Not remote
-- Title is VP or above
-- Title is below Manager level
+- Title too senior or too junior for your target level
 - Requires relocation
 - Requires security clearance
 - Requires industry license
@@ -210,12 +211,12 @@ Standard fit scoring applies, with these overrides:
 For each qualified job, produce:
 1. **Fit Score** (0–10) with rationale
 2. **ATS Keyword Analysis** — matched vs. missing
-3. **Company Research Brief** (3–5 bullets: what they do, recent news, why Erin fits)
+3. **Company Research Brief** (3–5 bullets: what they do, recent news, why you fit)
 4. **Tailored Resume** (`resume_tailored.md`) — ready to use
 5. **Cover Letter** (`cover_letter.md`) — ready to use
 6. **Summary card:** Company | Role | Fit Score | ATS Score | Remote Confirmed | Apply Link
 
-Then **pause and present everything to Erin** for review before any submission or outreach.
+Then **pause and present everything** for review before any submission or outreach.
 
 ---
 
@@ -233,30 +234,24 @@ Example: `applications/Acme_SrPMM/`
 
 ---
 
-## Key Metrics to Highlight (Erin's Top Stats)
+## Key Metrics to Highlight
 
-Always have these available for cover letters and tailoring:
+*(Fill in your own real metrics — never fabricate)*
 
 | Metric | Context |
 |---|---|
-| 2,400+ B2B leads in 6 weeks | simpleshow AI launch campaign |
-| 70% MQL-to-SQL improvement | Salesforce/Pardot redesign |
-| $200K pipeline in 10 days | V4 Avatar/Agentic Video launch |
-| 150% website traffic growth | CRO + demand generation |
-| 400% LinkedIn engagement growth | Content strategy |
-| 12 Fortune 1000 net-new accounts | ABM program |
-| 12+ AI product GTM launches | simpleshow, 2022–present |
-| 190+ sales/marketing assets in 2025 | simpleshow enablement library |
-| 30% email engagement improvement | Segmentation + A/B testing |
-| 20+ webinars produced | End-to-end, including sales handoff |
-| 2x Gold Brandon Hall Awards (2025) | Technology excellence |
-| $58K closed revenue, $116.5K pipeline | Single J&J webinar |
+| [X]+ leads in [timeframe] | [Campaign or initiative] |
+| [X]% conversion improvement | [What you changed] |
+| $[X] pipeline generated | [Launch or program] |
+| [X]% traffic/engagement growth | [Channel or initiative] |
+| [X] net-new accounts | [Program type] |
+| [X]+ product launches owned | [Company, timeframe] |
 
 ---
 
 ## What This Agent Does NOT Do
 
-- Does not submit applications without Erin's explicit approval
+- Does not submit applications without explicit approval
 - Does not fabricate experience, metrics, dates, or titles
 - Does not apply for roles that are not remote
 - Does not apply for titles outside the target list
