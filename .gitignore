@@ -5,6 +5,10 @@ CLAUDE.md
 applications/
 data/profile.json
 resume/master_resume.md
+CLAUDE_AgentConfig.md
+MasterResume_ErinBrown.md
+EBrown_Forter_Resume.docx
+profile.json
 *.env
 
 # Claude local settings
